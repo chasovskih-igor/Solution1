@@ -13,9 +13,6 @@ namespace Task6
 {
     public partial class Form1 : Form
     {
-        public Laptop laptop;
-        public Navigator navigator;
-        public Smartphone smartphone;
         public List<IComputingDevice> devices;
         public Form1()
         {
@@ -51,11 +48,13 @@ namespace Task6
             }
             if (t.Equals("Смартфон"))
             {
+                button3.Visible = true;
                 radioButton5.Visible = true;
                 radioButton6.Visible = true;
             }
             if (t.Equals("Навигатор"))
             {
+                button3.Visible = true;
                 label5.Visible = true;
                 textBox4.Visible = true;
                 button4.Visible = true;
@@ -80,9 +79,7 @@ namespace Task6
             {
                 devices.Add(new Navigator(textBox1.Text, textBox2.Text, int.Parse(textBox3.Text), int.Parse(textBox5.Text), textBox4.Text));
             }
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+            radioButton2.Checked = true;
 
         }
 
@@ -98,112 +95,104 @@ namespace Task6
             richTextBox2.Text += "Создано устройство " + textBox1.Text + " " + textBox2.Text + " с памятью " + textBox3.Text + " и зарядом батареи " + textBox5.Text + " \n";
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (textBox4.TextLength != 0)
+            {
+                if (devices.Count != 0)
+                {
+                    IComputingDevice device = devices[devices.Count - 1];
+                    richTextBox2.Text += ((Navigator)device).LeadTheWay() + "\n";
+                }
+            }
+            else richTextBox2.Text += "Enter the distanation" + "\n";
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void label4_Click(object sender, EventArgs e)
+
+
+        private void button3_Click(object sender, EventArgs e)
         {
+            IComputingDevice device = devices[devices.Count - 1];
+            richTextBox2.Text += ((Computer)device).ChargeCheck() + "\n";
+
 
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
+            if (devices.Count != 0 && radioButton1.Checked) {
+                IComputingDevice device = devices[devices.Count - 1];
+                richTextBox2.Text += ((Computer)device).DeviceOn() + "\n";
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (devices.Count != 0)
+            {
+                IComputingDevice device = devices[devices.Count - 1];
+                richTextBox2.Text += ((Computer)device).Reboot() + "\n";
+            }
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (devices.Count != 0)
+            {
+                IComputingDevice device = devices[devices.Count - 1];
+                richTextBox2.Text += ((Computer)device).Sleep() + "\n";
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (devices.Count != 0 && radioButton2.Checked)
+            {
+                IComputingDevice device = devices[devices.Count - 1];
+                richTextBox2.Text += ((Computer)device).DeviceOff() + "\n";
+            }
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (devices.Equals(comboBox1.Text[0]))
-                label5.Visible = !label5.Visible;
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton5_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton6_CheckedChanged(object sender, EventArgs e)
-        {
-
+            if (devices.Count != 0 && radioButton1.Checked && radioButton3.Checked)
+            {
+                IComputingDevice device = devices[devices.Count - 1];
+                richTextBox2.Text += ((Laptop)device).TouchPadOn() + "\n";
+            }
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (devices.Count != 0 && radioButton1.Checked && radioButton4.Checked)
+            {
+                IComputingDevice device = devices[devices.Count - 1];
+                richTextBox2.Text += ((Laptop)device).TouchPadOff() + "\n";
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
-            GetDevice();
-            IComputingDevice device = devices[devices.Count - 1];
-            if (device.Equals("Ноутбук"))
+            if (devices.Count != 0 && radioButton1.Checked && radioButton5.Checked)
             {
-                richTextBox2.Text += laptop.ChargeTimeCheck() + "\n";
+                IComputingDevice device = devices[devices.Count - 1];
+                richTextBox2.Text += ((Smartphone)device).FlashlightOn() + "\n";
             }
-            if (device.Equals("Смартфон"))
-            {
-                richTextBox2.Text += smartphone.ChargeCheck() + "\n";
-            }
-            if (device.Equals("Навигатор"))
-            {
-                richTextBox2.Text += navigator.ChargeCheck() + "\n";
-            }
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (devices.Count != 0 && radioButton1.Checked && radioButton6.Checked)
+            {
+                IComputingDevice device = devices[devices.Count - 1];
+                richTextBox2.Text += ((Smartphone)device).FlashlightOff() + "\n";
+            }
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }

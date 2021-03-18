@@ -53,6 +53,10 @@ namespace Task6
             this.label6 = new System.Windows.Forms.Label();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -70,7 +74,6 @@ namespace Task6
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(172, 20);
             this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Создать
             // 
@@ -88,7 +91,6 @@ namespace Task6
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(171, 20);
             this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label1
             // 
@@ -114,7 +116,6 @@ namespace Task6
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(170, 20);
             this.textBox3.TabIndex = 6;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label3
             // 
@@ -133,12 +134,11 @@ namespace Task6
             this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Устройство";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(503, 82);
+            this.radioButton1.Location = new System.Drawing.Point(8, 16);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(74, 17);
             this.radioButton1.TabIndex = 9;
@@ -150,7 +150,7 @@ namespace Task6
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(503, 105);
+            this.radioButton2.Location = new System.Drawing.Point(8, 39);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(82, 17);
             this.radioButton2.TabIndex = 10;
@@ -228,7 +228,6 @@ namespace Task6
             this.label5.Size = new System.Drawing.Size(150, 13);
             this.label5.TabIndex = 18;
             this.label5.Text = "Добавить пункт назначения";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // button4
             // 
@@ -247,7 +246,6 @@ namespace Task6
             this.richTextBox2.Size = new System.Drawing.Size(427, 241);
             this.richTextBox2.TabIndex = 20;
             this.richTextBox2.Text = "";
-            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // textBox5
             // 
@@ -255,7 +253,6 @@ namespace Task6
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(168, 20);
             this.textBox5.TabIndex = 21;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label6
             // 
@@ -269,7 +266,7 @@ namespace Task6
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(12, 236);
+            this.radioButton5.Location = new System.Drawing.Point(3, 3);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(96, 17);
             this.radioButton5.TabIndex = 26;
@@ -281,7 +278,7 @@ namespace Task6
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(114, 236);
+            this.radioButton6.Location = new System.Drawing.Point(3, 26);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(104, 17);
             this.radioButton6.TabIndex = 27;
@@ -290,13 +287,31 @@ namespace Task6
             this.radioButton6.UseVisualStyleBackColor = true;
             this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Location = new System.Drawing.Point(497, 79);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(104, 66);
+            this.panel1.TabIndex = 28;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.radioButton5);
+            this.panel2.Controls.Add(this.radioButton6);
+            this.panel2.Location = new System.Drawing.Point(15, 235);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(110, 44);
+            this.panel2.TabIndex = 29;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 488);
-            this.Controls.Add(this.radioButton6);
-            this.Controls.Add(this.radioButton5);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.richTextBox2);
@@ -308,8 +323,6 @@ namespace Task6
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox3);
@@ -321,6 +334,10 @@ namespace Task6
             this.Controls.Add(this.comboBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +369,8 @@ namespace Task6
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
